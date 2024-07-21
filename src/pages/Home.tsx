@@ -1,22 +1,27 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
-import './Home.css';
+import React from 'react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/react';
+import { useHistory } from 'react-router-dom';
 
 const Home: React.FC = () => {
+  const history = useHistory();
+
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Blank</IonTitle>
+          <center><IonTitle>Inicio</IonTitle></center>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Blank</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <ExploreContainer />
+      <IonContent>
+        <IonButton expand="full" onClick={() => history.push('/register-incident')}>
+          Registrar Incidencia
+        </IonButton>
+        <IonButton expand="full" onClick={() => history.push('/incident-list')}>
+          Ver Incidencias
+        </IonButton>
+        <IonButton expand="full" onClick={() => history.push('/about')}>
+          Acerca de
+        </IonButton>
       </IonContent>
     </IonPage>
   );
